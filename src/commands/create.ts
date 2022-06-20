@@ -1,10 +1,10 @@
 import { Command } from "commander";
-import { CREATE_TEMPLATE } from "../config";
 import { existsSync, readdirSync, readFileSync, writeFileSync } from "fs-extra";
 import inquirer from "inquirer";
 import { get } from "lodash";
 import { basename, extname, resolve } from "path";
 
+import { CREATE_TEMPLATE } from "../config";
 import { initCommand } from "../core/command";
 import { getCtx } from "../core/context";
 import { download } from "../helper/download";

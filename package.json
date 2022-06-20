@@ -1,13 +1,22 @@
 {
   "name": "imohuan-cli",
-  "version": "0.0.0",
-  "description": "",
-  "keywords": [],
-  "author": "",
+  "version": "0.0.2",
+  "description": "常用工具",
+  "homepage": "https://github.com/imohuan/imohuan-cli",
+  "keywords": [
+    "cli",
+    "imohuan",
+    "typescript",
+    "commander",
+    "ora",
+    "inquirer"
+  ],
+  "author": "imohuan",
   "license": "ISC",
   "files": [
     "bin",
     "dist",
+    "src/templates",
     "package.json"
   ],
   "bin": {
@@ -29,6 +38,7 @@
     "download-git-repo": "^3.0.2",
     "ora": "^4.1.1",
     "semver": "^7.3.7",
+    "node-homedir": "^1.1.1",
     "winston": "^3.7.2",
     "winston-daily-rotate-file": "^4.7.1"
   },
@@ -54,7 +64,6 @@
     "latest-version": "^6.0.0",
     "root-check": "^2.0.0",
     "strip-ansi": "^7.0.1",
-    "node-homedir": "^1.1.1",
     "nodemon": "^2.0.16",
     "prettier": "^2.6.2",
     "rollup": "^2.75.6",

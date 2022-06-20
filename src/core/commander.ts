@@ -1,13 +1,14 @@
 import { program } from "commander";
 
 import pkg from "../../package.json";
+import { commandCreate } from "../commands/create";
+import { commandLog } from "../commands/log";
+import { commandUpdate } from "../commands/update";
 import { formatLog } from "../helper";
-import { Ctx } from "./context";
-
 import { initCommand } from "./command";
+import { Ctx } from "./context";
 import { initHelp } from "./formatHelp";
 import { initOutput } from "./formatOutput";
-import { commandCreate } from "../commands/create";
 
 export function registerCommand(ctx: Ctx) {
   initHelp(program, {});
@@ -21,5 +22,7 @@ export function registerCommand(ctx: Ctx) {
     "查看版本"
   );
   commandCreate(program);
+  commandLog(program);
+  commandUpdate(program);
   program.parse();
 }

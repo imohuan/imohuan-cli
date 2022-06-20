@@ -1,6 +1,6 @@
 import "winston-daily-rotate-file";
 import chalk from "chalk";
-import { isArray, isObject, upperFirst } from "lodash";
+import { get, isArray, isObject, upperFirst } from "lodash";
 import moment from "moment";
 import stripAnsi from "strip-ansi";
 import { createLogger, format, transports } from "winston";
@@ -9,14 +9,16 @@ export type { Logger } from "winston";
 
 const { combine, timestamp, label, printf, splat } = format;
 
-const levelColor: any = {
-  error: chalk.red,
-  warn: chalk.yellow,
-  info: chalk.green,
-  debug: chalk.blue,
-  verbose: chalk.cyan,
-  silly: chalk.white
+const levelColor = {
+  error: chalk.red.bold,
+  warn: chalk.yellow.bold,
+  info: chalk.green.bold,
+  debug: chalk.blue.bold,
+  verbose: chalk.cyan.bold,
+  silly: chalk.white.bold
 };
+
+export type LogLevel = keyof typeof levelColor;
 
 const createRotateFile = (level: string, dirname: string) => {
   const transport = new transports.DailyRotateFile({
@@ -31,10 +33,12 @@ const createRotateFile = (level: string, dirname: string) => {
   return transport;
 };
 
-export const formatLog = (args: { label: string; level: string; message: string }) => {
-  const result = `${chalk.gray.bold("$")} ${chalk.blue.bold(`[${args.label}]`)} ${levelColor[
-    args.level
-  ].bold(`[${upperFirst(args.level)}]`)}: ${args.message}`;
+export const formatLog = (args: { label: string; level: LogLevel; message: string }) => {
+  const result = `${chalk.gray.bold("$")} ${chalk.blue.bold(`[${args.label}]`)} ${get(
+    levelColor,
+    args.level,
+    chalk.red.bold
+  )(`[${upperFirst(args.level)}]`)}: ${args.message}`;
   return chalk.white.bold(result);
 };
 

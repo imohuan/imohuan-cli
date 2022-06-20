@@ -29,6 +29,7 @@ export default defineConfig(({}) => {
           "figlet",
           "download-git-repo",
           "semver",
+          "node-homedir",
           "winston",
           "winston-daily-rotate-file"
         ])
