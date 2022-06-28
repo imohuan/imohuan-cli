@@ -6,6 +6,7 @@ export const LOWEST_NODE_VERSION = "12.0.0";
 
 export const CREATE_TEMPLATE = {
   "vite-lib": "https://github.com/imohuan/vite-lib",
+  "vite-lib-packages": "https://github.com/imohuan/vite-lib-packages",
   "midway-ts-serverless": "https://github.com/imohuan/midway-ts-serverless",
   "midway-ts": "https://github.com/imohuan/midway-ts",
   "vite-vue3-ts": "https://github.com/imohuan/vue-template"
